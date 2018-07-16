@@ -13,12 +13,23 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+            keyAlias "MyApplication"
+            storePassword "ZAcur90xC1"
+            keyPassword "PBA9426in2"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             ext.betaDistributionGroupAliases="personal"
             ext.betaDistributionReleaseNotes="Release notes example."
+            signingConfig signingConfigs.release
         }
     }
 }
